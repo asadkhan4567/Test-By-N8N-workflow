@@ -57,7 +57,7 @@ jobs:
     timeout-minutes: 30
     env:
       CI: 'true'
-      BASE_URL: ${{ secrets.QA_BASE_URL }}
+      BASE_URL: ${{ secrets.QA_BASE_URL || vars.QA_BASE_URL || 'https://swaglabs.in/' }}
       API_TOKEN: ${{ secrets.QA_API_TOKEN }}
       DATABASE_URL: ${{ secrets.QA_DATABASE_URL }}
       GREP: ${{ github.event_name == 'workflow_dispatch' && inputs.grep || '@smoke|@api' }}
